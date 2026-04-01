@@ -17,6 +17,10 @@ ZVox.LogFileHandle = ZVox.LogFileHandle
 if not ZVox.LogFileHandle then
 	ZVox.LogFileHandle = file.Open("zvox/zvox_log.txt", "w", "DATA")
 
+	if not IsValid(ZVox.LogFileHandle) then
+		return
+	end
+
 	ZVox.LogFileHandle:Write(os.date("%d/%m/%Y (DD/MM/YYYY) %H:%M"))
 	ZVox.LogFileHandle:Write("\n")
 	ZVox.LogFileHandle:Write("-== " .. ZVOX_VERSION .. " Loaded ==-\n")
@@ -31,6 +35,10 @@ local function writeTimestamp()
 end
 
 function ZVox.PushMessageToLogFile(msg)
+	if not IsValid(ZVox.LogFileHandle) then
+		return
+	end
+
 	writeTimestamp()
 
 	ZVox.LogFileHandle:Write(msg .. "\n")
@@ -38,6 +46,10 @@ function ZVox.PushMessageToLogFile(msg)
 end
 
 function ZVox.CloseLogFile()
+	if not IsValid(ZVox.LogFileHandle) then
+		return
+	end
+
 	ZVox.PushMessageToLogFile("-== " .. ZVOX_VERSION .. " shutting down ==-")
 
 	ZVox.LogFileHandle:Close()
