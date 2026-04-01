@@ -12,7 +12,7 @@
 ## About
 MotherVox is a gamemode about mining minerals, based upon Motherload  
 It runs on a heavily trimmed down build of ZVox. (commit 9a0f6af8e05922b2d5898e09b999cdd292facfa9)  
-You can find the workshop page for MotherVox ~~[here!]()~~  <!-- Not on the workshop yet! -->
+You can find the workshop page for MotherVox [here!](https://steamcommunity.com/sharedfiles/filedetails/?id=3697100491)
 
 ## Developing
 Don't develop ontop of this, wait for ZVox.
