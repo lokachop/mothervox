@@ -17,17 +17,17 @@ ZVox.LogFileHandle = ZVox.LogFileHandle
 if not ZVox.LogFileHandle then
 	ZVox.LogFileHandle = file.Open("zvox/zvox_log.txt", "w", "DATA")
 
-	if not IsValid(ZVox.LogFileHandle) then
-		return
+	if IsValid(ZVox.LogFileHandle) then
+		ZVox.LogFileHandle:Write(os.date("%d/%m/%Y (DD/MM/YYYY) %H:%M"))
+		ZVox.LogFileHandle:Write("\n")
+		ZVox.LogFileHandle:Write("-== " .. ZVOX_VERSION .. " Loaded ==-\n")
+		ZVox.LogFileHandle:Flush()
 	end
-
-	ZVox.LogFileHandle:Write(os.date("%d/%m/%Y (DD/MM/YYYY) %H:%M"))
-	ZVox.LogFileHandle:Write("\n")
-	ZVox.LogFileHandle:Write("-== " .. ZVOX_VERSION .. " Loaded ==-\n")
-	ZVox.LogFileHandle:Flush()
 else
-	ZVox.LogFileHandle:Write("--==Lua refresh @@ " .. tostring(os.date("%H:%M")) .. ", sys" .. string.format("%5.4f", SysTime()) .. "==--\n")
-	ZVox.LogFileHandle:Flush()
+	if IsValid(ZVox.LogFileHandle) then
+		ZVox.LogFileHandle:Write("--==Lua refresh @@ " .. tostring(os.date("%H:%M")) .. ", sys" .. string.format("%5.4f", SysTime()) .. "==--\n")
+		ZVox.LogFileHandle:Flush()
+	end
 end
 
 local function writeTimestamp()
