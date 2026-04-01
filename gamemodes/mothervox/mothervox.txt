@@ -1,0 +1,8 @@
+"MotherVox"
+{
+    "base"          "base"
+    "title"         "MotherVox"
+    "maps"          "^zvox_*"
+    "category"	    "other"
+    "menusystem"    "1"
+}

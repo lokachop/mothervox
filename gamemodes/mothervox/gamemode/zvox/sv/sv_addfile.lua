@@ -1,0 +1,1 @@
+ZVox = ZVox or {}

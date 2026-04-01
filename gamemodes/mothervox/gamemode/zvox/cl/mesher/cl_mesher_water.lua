@@ -1,0 +1,26 @@
+ZVox = ZVox or {}
+-- water requires a different mesher
+
+local math = math
+local math_floor = math.floor
+
+
+-- EXPRESSINCLUDE
+local voxInfoExpressRegistry = ZVox.GetExpressVoxelInfoRegistry()
+local _EXPRESS_IDX_NAME 	        = ZVOX_EXPRESS_IDX_NAME
+local _EXPRESS_IDX_VISIBLE          = ZVOX_EXPRESS_IDX_VISIBLE
+local _EXPRESS_IDX_SOLID            = ZVOX_EXPRESS_IDX_SOLID
+local _EXPRESS_IDX_MULTITEX         = ZVOX_EXPRESS_IDX_MULTITEX
+local _EXPRESS_IDX_TEX              = ZVOX_EXPRESS_IDX_TEX
+local _EXPRESS_IDX_VOXELGROUP       = ZVOX_EXPRESS_IDX_VOXELGROUP
+local _EXPRESS_IDX_VOXELMODEL       = ZVOX_EXPRESS_IDX_VOXELMODEL
+local _EXPRESS_IDX_VOXELMODEL_TABLE = ZVOX_EXPRESS_IDX_VOXELMODEL_TABLE
+local _EXPRESS_IDX_EMISSIVE         = ZVOX_EXPRESS_IDX_EMISSIVE
+local _EXPRESS_IDX_OPAQUE           = ZVOX_EXPRESS_IDX_OPAQUE
+-- EXPRESSINCLUDE
+
+
+local cSizeX = ZVOX_CHUNKSIZE_X
+local cSizeY = ZVOX_CHUNKSIZE_Y
+local cSizeZ = ZVOX_CHUNKSIZE_Z
+local cSizeConst1 = ZVOX_CHUNKSIZE_X * ZVOX_CHUNKSIZE_Y
