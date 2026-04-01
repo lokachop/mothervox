@@ -1,8 +1,5 @@
 ZVox = ZVox or {}
 
-local vecReuse = Vector()
-
-
 ZVox.DeclareNewActionType("place", {
 	["structure"] = {
 		{"x", ZVOX_ACTION_FIELD_ULONG}, -- pos X
@@ -64,7 +61,6 @@ ZVox.DeclareNewActionType("place", {
 		local x, y, z = act["x"], act["y"], act["z"]
 
 		ZVox.SetBlockAtPos(univ, x, y, z, voxelID, act["voxelState"])
-		vecReuse:SetUnpacked(x, y, z)
 	end
 })
 
@@ -107,26 +103,24 @@ ZVox.DeclareNewActionType("break", {
 
 	-- Called when received from the server
 	["execute_cl"] = function(act)
-		ZVox.PushMessageToLogFile("break, execute_cl, l110")
+		ZVox.PushMessageToLogFile("break, execute_cl, l106")
 		local univName = act:GetUniverseName()
 
-		ZVox.PushMessageToLogFile("break, execute_cl, l113")
+		ZVox.PushMessageToLogFile("break, execute_cl, l109")
 		local univ = ZVox.GetUniverseByName(univName)
 		if not univ then
 			univ = ZVox.GetActiveUniverse()
 		end
 
-		ZVox.PushMessageToLogFile("break, execute_cl, l119")
+		ZVox.PushMessageToLogFile("break, execute_cl, l115")
 		local x, y, z = act["x"], act["y"], act["z"]
 		local voxelID = ZVox.GetBlockAtPos(univ, x, y, z)
 
-		ZVox.PushMessageToLogFile("break, execute_cl, l123")
-		vecReuse:SetUnpacked(x, y, z)
-		ZVox.PushMessageToLogFile("break, execute_cl, l125")
+		ZVox.PushMessageToLogFile("break, execute_cl, l119")
 		ZVox.EmitVoxelBreakParticles(voxelID, x, y, z)
-		ZVox.PushMessageToLogFile("break, execute_cl, l127")
+		ZVox.PushMessageToLogFile("break, execute_cl, l121")
 		ZVox.SetBlockAtPos(univ, x, y, z, 0)
-		ZVox.PushMessageToLogFile("break, execute_cl, l129")
+		ZVox.PushMessageToLogFile("break, execute_cl, l124")
 	end
 })
 
