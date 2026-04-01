@@ -1,3 +1,5 @@
+<img width="684" height="113" alt="mothervox-final" src="https://github.com/user-attachments/assets/1c25f881-f1f4-44b7-8176-d8eec6f60a63" />
+
 # MotherVox: We've hit the motherload of Voxel engines!
 > [!IMPORTANT]
 > This is an april fools branch, the code is awful.
