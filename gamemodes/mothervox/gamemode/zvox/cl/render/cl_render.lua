@@ -225,7 +225,12 @@ local rtRender = ZVox.GetViewPortRT()
 local matRender = ZVox.NewMatFromRT(ZVox.GetViewPortRT(), "viewport")
 ZVox.NewSettingListener("zvox_render_lowres_recompute_rt", "fun_lowres_viewport", function(newState)
 	rtRender = ZVox.GetViewPortRT()
-	matRender = ZVox.NewMatFromRT(ZVox.GetViewPortRT(), "viewport")
+
+	if newState then
+		matRender = ZVox.NewMatFromRT(rtRender, "viewport_lq")
+	else
+		matRender = ZVox.NewMatFromRT(rtRender, "viewport")
+	end
 end)
 
 function ZVox.RenderFramebuffer()
